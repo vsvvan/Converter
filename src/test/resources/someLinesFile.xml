@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persons>
+    <person id="1">
+        <Name>
+            <FirstName>Artur</FirstName>
+            <LastName>Kasumov</LastName>
+        </Name>
+        <Birthday date="2001-08-23" />
+        <Comment>Комментарий/</Comment>
+    </person>
+    <person id="2">
+        <Name>
+            <FirstName>Lexa</FirstName>
+            <LastName>Ishchenko</LastName>
+        </Name>
+        <Birthday date="2002-08-04" />
+        <Comment>Кр"ут"ой, чел</Comment>
+    </person>
+    <person id="3">
+        <Name>
+            <FirstName>Misha</FirstName>
+            <LastName>Rybalka</LastName>
+        </Name>
+        <Birthday date="2000-05-19" />
+        <Comment>Тоже неплох</Comment>
+    </person>
+</persons>

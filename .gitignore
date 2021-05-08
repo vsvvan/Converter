@@ -1,3 +1,3 @@
-Converter_Last/target/
-Converter_Last/.idea
-Converter_Last/*.iml
+target/
+.idea
+*.iml

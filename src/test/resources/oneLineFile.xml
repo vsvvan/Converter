@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persons>
+  <person id="1">
+    <Name>
+      <FirstName>Artur</FirstName>
+      <LastName>Kasumov</LastName>
+    </Name>
+    <Birthday date="2001-08-23" />
+    <Comment>Комментарий/</Comment>
+  </person>
+</persons>
