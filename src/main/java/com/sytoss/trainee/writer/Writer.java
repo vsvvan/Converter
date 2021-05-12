@@ -6,5 +6,4 @@ import java.util.List;
 
 public interface Writer {
     void write(String outputFilename, List<PersonLine> lines);
-
 }

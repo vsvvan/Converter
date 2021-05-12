@@ -46,7 +46,7 @@ public class SAXWriter extends AbstractWriter {
                 writer.writeCharacters("\n    ");
 
                 writer.writeEmptyElement("Birthday");
-                writer.writeAttribute("date", date.format(p.getBirthDate()));
+                writer.writeAttribute("date", p.getBirthDate());
                 writer.writeCharacters("\n    ");
 
                 writer.writeStartElement("Comment");

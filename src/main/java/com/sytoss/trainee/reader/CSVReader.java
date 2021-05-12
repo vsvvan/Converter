@@ -25,7 +25,6 @@ public class CSVReader extends AbstractReader {
         return lines;
     }
 
-    @Override
     public PersonLine processLine(String inputData) {
         boolean isQuoteOpened = false;
         StringBuilder builder = new StringBuilder();

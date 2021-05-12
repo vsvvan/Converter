@@ -52,8 +52,5 @@ public class DOMReader extends AbstractReader {
         return persons;
     }
 
-    @Override
-    public PersonLine processLine(String inputData) {
-        return null;
-    }
+
 }

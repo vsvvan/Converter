@@ -26,7 +26,7 @@ public class DOMWriter extends AbstractWriter {
             person.addContent(new Element("Name")
                     .addContent(new Element("FirstName").setText(p.getFirstName()))
                     .addContent(new Element("LastName").setText(p.getLastName())));
-            person.addContent(new Element("Birthday").setAttribute("date", date.format(p.getBirthDate())));
+            person.addContent(new Element("Birthday").setAttribute("date", p.getBirthDate()));
             person.addContent(new Element("Comment").setText(p.getComment()));
             doc.getRootElement().addContent(person);
         }

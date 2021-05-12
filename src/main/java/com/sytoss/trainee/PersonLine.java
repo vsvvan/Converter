@@ -14,7 +14,6 @@ public class PersonLine extends Line {
     private enum IdxForPersonLine {IDX, FIRSTNAME, LASTNAME, BIRTHDATE, COMMENT}
 
     public PersonLine() {
-
     }
 
     public PersonLine(String id, String firstName, String lastName, String birthday, String comment) {
@@ -49,7 +48,7 @@ public class PersonLine extends Line {
         return personLastName;
     }
 
-    public Date getBirthDate() {
+    /*public Date getBirthDate() {
         String personBirthDate = getCells().get(IdxForPersonLine.BIRTHDATE.ordinal());
         SimpleDateFormat date = new SimpleDateFormat("yyyy-MM-dd");
         try {
@@ -58,6 +57,11 @@ public class PersonLine extends Line {
             log.error(e.getMessage());
             return null;
         }
+    }*/
+
+    public String getBirthDate() {
+        String personBirthDate = getCells().get(IdxForPersonLine.BIRTHDATE.ordinal());
+        return personBirthDate;
     }
 
     public String getComment() {

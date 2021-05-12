@@ -6,6 +6,4 @@ import java.util.List;
 
 public interface Reader {
     List<PersonLine> read(String inputFilename);
-
-    PersonLine processLine(String inputData);
 }
