@@ -1,4 +1,4 @@
-import com.sytoss.trainee.PersonLine;
+import com.sytoss.trainee.lines.PersonLine;
 import com.sytoss.trainee.writer.SAXWriter;
 import org.junit.Assert;
 import org.junit.Test;

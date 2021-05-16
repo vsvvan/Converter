@@ -1,6 +1,7 @@
-package com.sytoss.trainee.reader;
 
-import com.sytoss.trainee.PersonLine;
+
+import com.sytoss.trainee.lines.PersonLine;
+import com.sytoss.trainee.reader.SAXReader;
 import org.junit.Assert;
 import org.junit.Test;
 

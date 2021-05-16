@@ -1,10 +1,8 @@
 import com.sytoss.trainee.reader.CSVReader;
-import com.sytoss.trainee.PersonLine;
+import com.sytoss.trainee.lines.PersonLine;
 import org.junit.Assert;
 import org.junit.Test;
 
-import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.util.*;
 
 import static org.junit.Assert.assertEquals;

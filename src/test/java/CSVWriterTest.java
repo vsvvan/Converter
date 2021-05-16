@@ -1,8 +1,7 @@
-package com.sytoss.trainee.writer;
 
-
-import com.sytoss.trainee.PersonLine;
+import com.sytoss.trainee.lines.PersonLine;
 import com.sytoss.trainee.reader.CSVReader;
+import com.sytoss.trainee.writer.CSVWriter;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -185,7 +184,7 @@ public class CSVWriterTest
         writer.write("src/test/resources/testfile1.csv",persons);
 
         File file = new File("src/test/resources/testfile1.csv");
-        assertEquals(file.length(), 163);
+        assertEquals(file.length(), 165);
 
         List<PersonLine> personsNew = new ArrayList<PersonLine>(reader.read("src/test/resources/testfile1.csv"));
 

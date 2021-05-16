@@ -1,6 +1,6 @@
 package com.sytoss.trainee.reader;
 
-import com.sytoss.trainee.PersonLine;
+import com.sytoss.trainee.lines.PersonLine;
 import org.apache.log4j.Logger;
 
 import java.io.*;

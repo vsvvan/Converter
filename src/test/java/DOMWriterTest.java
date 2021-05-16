@@ -1,5 +1,5 @@
 import com.sytoss.trainee.writer.DOMWriter;
-import com.sytoss.trainee.PersonLine;
+import com.sytoss.trainee.lines.PersonLine;
 import org.junit.Assert;
 import org.junit.Test;
 
