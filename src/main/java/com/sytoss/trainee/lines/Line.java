@@ -1,4 +1,4 @@
-package com.sytoss.trainee;
+package com.sytoss.trainee.lines;
 
 import java.util.ArrayList;
 import java.util.Collections;

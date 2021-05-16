@@ -24,4 +24,12 @@
     <Birthday date="2000-05-19" />
     <Comment>Тоже неплох</Comment>
   </person>
+  <person id="4">
+    <Name>
+      <FirstName>Danylo</FirstName>
+      <LastName>Hrechyshkin</LastName>
+    </Name>
+    <Birthday date="2001-10-01" />
+    <Comment>Тоже неплох</Comment>
+  </person>
 </persons>

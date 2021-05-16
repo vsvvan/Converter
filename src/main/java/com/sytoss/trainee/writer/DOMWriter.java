@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.List;
 
-import com.sytoss.trainee.PersonLine;
+import com.sytoss.trainee.lines.PersonLine;
 import org.jdom2.Document;
 import org.jdom2.Element;
 import org.jdom2.output.Format;

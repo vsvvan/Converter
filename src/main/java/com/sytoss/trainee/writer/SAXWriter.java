@@ -6,7 +6,7 @@ import java.text.SimpleDateFormat;
 import java.util.List;
 import java.io.IOException;
 
-import com.sytoss.trainee.PersonLine;
+import com.sytoss.trainee.lines.PersonLine;
 import org.apache.log4j.Logger;
 
 public class SAXWriter extends AbstractWriter {
