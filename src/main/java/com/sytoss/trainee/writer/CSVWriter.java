@@ -1,7 +1,6 @@
 package com.sytoss.trainee.writer;
 
-import com.sytoss.trainee.Line;
-import com.sytoss.trainee.PersonLine;
+import com.sytoss.trainee.lines.PersonLine;
 
 import java.io.BufferedWriter;
 import java.io.File;
@@ -37,7 +36,7 @@ public class CSVWriter extends AbstractWriter {
     }
 
     private String format(String value) {
-        Pattern extraSymbolPattern = Pattern.compile("[/.=\"\\-;:(){}\\[\\]]");
+        Pattern extraSymbolPattern = Pattern.compile("[ /.=\"\\-;:(){}\\[\\]]");
         Matcher extraSymbolMatcher = extraSymbolPattern.matcher(value);
 
         if (extraSymbolMatcher.find()) {

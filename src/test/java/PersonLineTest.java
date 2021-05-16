@@ -1,4 +1,4 @@
-import com.sytoss.trainee.PersonLine;
+import com.sytoss.trainee.lines.PersonLine;
 import org.junit.Test;
 
 import java.util.ArrayList;

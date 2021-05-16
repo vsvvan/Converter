@@ -1,6 +1,6 @@
 package com.sytoss.trainee.reader;
 
-import com.sytoss.trainee.PersonLine;
+import com.sytoss.trainee.lines.PersonLine;
 
 import java.util.List;
 

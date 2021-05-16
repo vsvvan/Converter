@@ -1,0 +1,36 @@
+2021-05-16 17:28:28 INFO  DataConverter: - Program is started.
+2021-05-16 18:03:16 INFO  DataConverter: - Program is started
+2021-05-16 18:03:16 FATAL CSVReader: - src\main\resources\testfile1.xml,src\main\resources\testfileOutputCSV.csv (Системе не удается найти указанный путь)
+2021-05-16 18:04:13 INFO  DataConverter: - Program is started
+2021-05-16 18:04:13 INFO  DataConverter: - Program process ended
+2021-05-16 18:07:23 INFO  DataConverter: - Program is started
+2021-05-16 18:07:23 INFO  DataConverter: - Program process ended
+2021-05-16 18:08:22 INFO  DataConverter: - Program is started
+2021-05-16 18:08:22 INFO  DataConverter: - Program process ended
+2021-05-16 18:12:57 INFO  DataConverter: - Program is started
+2021-05-16 18:12:57 INFO  DataConverter: - Program process ended
+2021-05-16 18:44:56 INFO  DataConverter: - Program is started
+2021-05-16 18:46:36 INFO  DataConverter: - Program is started
+2021-05-16 18:46:36 ERROR DataConverter: - Error while creating Person: 	- wrong birthday format, birthday has to be yyyy-mm-dd
+2021-05-16 18:46:36 ERROR DataConverter: - Error while creating Person: 	- wrong birthday format, birthday has to be yyyy-mm-dd
+2021-05-16 18:46:36 ERROR DataConverter: - Error while creating Person: 	- wrong birthday format, birthday has to be yyyy-mm-dd
+2021-05-16 18:46:36 ERROR DataConverter: - Error while creating Person: 	- wrong birthday format, birthday has to be yyyy-mm-dd
+2021-05-16 18:47:11 INFO  DataConverter: - Program is started
+2021-05-16 18:47:11 ERROR DataConverter: - Error while creating Person: 	- wrong birthday format, birthday has to be yyyy-mm-dd
+2021-05-16 18:47:11 ERROR DataConverter: - Error while creating Person: 	- wrong birthday format, birthday has to be yyyy-mm-dd
+2021-05-16 18:47:11 ERROR DataConverter: - Error while creating Person: 	- wrong birthday format, birthday has to be yyyy-mm-dd
+2021-05-16 18:47:11 ERROR DataConverter: - Error while creating Person: 	- wrong birthday format, birthday has to be yyyy-mm-dd
+2021-05-16 18:48:47 INFO  DataConverter: - Program is started
+2021-05-16 18:48:47 ERROR DataConverter: - Error while creating Person: 	- wrong birthday format, birthday has to be yyyy-mm-dd
+2021-05-16 18:48:47 ERROR DataConverter: - Error while creating Person: 	- wrong birthday format, birthday has to be yyyy-mm-dd
+2021-05-16 18:48:47 ERROR DataConverter: - Error while creating Person: 	- wrong birthday format, birthday has to be yyyy-mm-dd
+2021-05-16 18:48:47 ERROR DataConverter: - Error while creating Person: 	- wrong birthday format, birthday has to be yyyy-mm-dd
+2021-05-16 18:50:20 INFO  DataConverter: - Program is started
+2021-05-16 18:50:20 ERROR DataConverter: - Error while creating Person: 	- wrong birthday format, birthday has to be yyyy-mm-dd
+2021-05-16 18:50:20 ERROR DataConverter: - Error while creating Person: 	- wrong birthday format, birthday has to be yyyy-mm-dd
+2021-05-16 18:50:20 ERROR DataConverter: - Error while creating Person: 	- wrong birthday format, birthday has to be yyyy-mm-dd
+2021-05-16 18:50:20 ERROR DataConverter: - Error while creating Person: 	- wrong birthday format, birthday has to be yyyy-mm-dd
+2021-05-16 18:51:43 INFO  DataConverter: - Program is started
+2021-05-16 18:51:43 INFO  DataConverter: - Program process ended
+2021-05-16 18:52:40 INFO  DataConverter: - Program is started
+2021-05-16 18:52:40 INFO  DataConverter: - Program process ended
