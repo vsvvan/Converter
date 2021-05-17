@@ -5,15 +5,14 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.List;
 
+import com.sytoss.trainee.DataConverter;
 import com.sytoss.trainee.lines.PersonLine;
 import org.jdom2.Document;
 import org.jdom2.Element;
 import org.jdom2.output.Format;
 import org.jdom2.output.XMLOutputter;
-import org.apache.log4j.Logger;
 
 public class DOMWriter extends AbstractWriter {
-    private static final Logger log = Logger.getLogger(DOMWriter.class);
 
     @Override
     public void write(String outputFilename, List<PersonLine> personLines) {
@@ -33,8 +32,9 @@ public class DOMWriter extends AbstractWriter {
         XMLOutputter xmlOutputter = new XMLOutputter(Format.getPrettyFormat());
         try {
             xmlOutputter.output(doc, new FileOutputStream(outputFilename));
-        } catch (IOException e) {
-            log.error(e.getMessage());
+        } catch (IOException exception) {
+            DataConverter.log.error("Error while writing xml-file by DOMWriter: \n\t- " + exception.getMessage());
+            System.exit(-2);
         }
     }
 }

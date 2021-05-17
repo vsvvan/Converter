@@ -1,5 +1,6 @@
 package com.sytoss.trainee.writer;
 
+import com.sytoss.trainee.DataConverter;
 import com.sytoss.trainee.lines.PersonLine;
 
 import java.io.BufferedWriter;
@@ -30,8 +31,9 @@ public class CSVWriter extends AbstractWriter {
                 writer.write(format(person.getComment()));
                 writer.write("\n");
             }
-        } catch (IOException e) {
-            e.printStackTrace();
+        } catch (IOException exception) {
+            DataConverter.log.error("Error while writing xml-file by CSVWriter: \n\t- " + exception.getMessage());
+            System.exit(-2);
         }
     }
 
