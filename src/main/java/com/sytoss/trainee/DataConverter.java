@@ -25,12 +25,11 @@ public class DataConverter {
     public List<PersonLine> readLinesFromFile(String inputPath) {
 
         if(FormatUtils.isCsv(inputPath)) {
-            //csv and xml
+
             reader = new CSVReader();
         }
         else if( FormatUtils.isXml(inputPath)) {
 
-            //xml and csv
             File file = new File(inputPath);
             double bytes = file.length();
             bytes = bytes / 1024;
@@ -63,22 +62,17 @@ public class DataConverter {
 
     public static void main(String[] args) {
 
-        String xmlIn = "src/main/resources/testfile1.xml";
-        String csvOut = "src/main/resources/testfileOutputCSV.csv";
-        String csvIn = "src/main/resources/testfile1.csv";
-        String xmlOut = "src/main/resources/saxtestfile.xml";
-
         log.info("Program is started");
+
+        if(args.length < 2) {
+            System.err.println("Wrong quantity of the arguments: \n\t- arguments should be filepath <csv | xml> or vise versa");
+            System.exit(-3);
+        }
         List<PersonLine> lines;
 
         DataConverter converter = new DataConverter();
-        //from xml to csv
-        lines = converter.readLinesFromFile(xmlIn);
-        converter.writeLinesToFile(csvOut, lines);
-
-        //form csv to xml
-        lines = converter.readLinesFromFile(csvIn);
-        converter.writeLinesToFile(xmlOut, lines);
+        lines = converter.readLinesFromFile(args[0]);
+        converter.writeLinesToFile(args[1], lines);
 
         log.info("Program process ended");
 

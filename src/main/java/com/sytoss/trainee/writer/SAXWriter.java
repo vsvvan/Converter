@@ -6,17 +6,19 @@ import java.text.SimpleDateFormat;
 import java.util.List;
 import java.io.IOException;
 
+import com.sytoss.trainee.DataConverter;
 import com.sytoss.trainee.lines.PersonLine;
-import org.apache.log4j.Logger;
+
 
 public class SAXWriter extends AbstractWriter {
-    public static final Logger log = Logger.getLogger(SAXWriter.class);
 
     @Override
     public void write(String outputFilename, List<PersonLine> lines) {
+
         XMLOutputFactory factory = XMLOutputFactory.newInstance();
-        XMLStreamWriter writer = null;
+        XMLStreamWriter writer;
         SimpleDateFormat date = new SimpleDateFormat("yyyy-MM-dd");
+
         try (FileWriter fileWriter = new FileWriter(outputFilename)) {
             writer = factory.createXMLStreamWriter(fileWriter);
             writer.writeStartDocument();
@@ -66,8 +68,10 @@ public class SAXWriter extends AbstractWriter {
 
             writer.flush();
             writer.close();
-        } catch (XMLStreamException | IOException e) {
-            log.error(e.getMessage());
+
+        } catch (XMLStreamException | IOException exception) {
+            DataConverter.log.error("Error while writing xml-file by SAXWriter: \n\t- " + exception.getMessage());
+            System.exit(-2);
         }
     }
 

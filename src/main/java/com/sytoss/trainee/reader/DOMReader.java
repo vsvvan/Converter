@@ -1,5 +1,6 @@
 package com.sytoss.trainee.reader;
 
+import com.sytoss.trainee.DataConverter;
 import com.sytoss.trainee.lines.PersonLine;
 import org.jdom2.Document;
 import org.jdom2.Element;
@@ -11,10 +12,7 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.apache.log4j.Logger;
-
 public class DOMReader extends AbstractReader {
-    private static final Logger log = Logger.getLogger(DOMReader.class);
 
     @Override
     public List<PersonLine> read(String inputFilename) {
@@ -29,12 +27,15 @@ public class DOMReader extends AbstractReader {
             Document jdomDocument = domBuilder.build(doc);
             Element root = jdomDocument.getRootElement();
             List<Element> personListElements = root.getChildren("person");
+
             String id;
             String firstName;
             String lastName;
             String birthdate;
             String comment;
+
             for (Element personEl : personListElements) {
+
                 id = personEl.getAttributeValue("id");
                 List<Element> name = personEl.getChildren("Name");
                 firstName = name.get(0).getChildText("FirstName");
@@ -42,12 +43,13 @@ public class DOMReader extends AbstractReader {
                 List<Element> birthday = personEl.getChildren("Birthday");
                 birthdate = birthday.get(0).getAttributeValue("date");
                 comment = personEl.getChildText("Comment");
-                PersonLine person = new PersonLine(id, firstName, lastName, birthdate, comment);
-                persons.add(person);
+
+                persons.add(new PersonLine(id, firstName, lastName, birthdate, comment));
             }
 
-        } catch (Exception e) {
-            log.error(e.getMessage());
+        } catch (Exception exception) {
+            DataConverter.log.error("Error while reading xml-file by DOMReader: \n\t- " + exception.getMessage());
+            System.exit(-1);
         }
         return persons;
     }

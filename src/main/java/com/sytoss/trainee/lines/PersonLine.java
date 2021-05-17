@@ -1,7 +1,7 @@
 package com.sytoss.trainee.lines;
 
 import com.sytoss.trainee.DataConverter;
-import com.sytoss.trainee.utils.Validation;
+import com.sytoss.trainee.utils.ValidationUtils;
 
 import java.util.List;
 
@@ -15,28 +15,43 @@ public class PersonLine extends Line {
     }
 
     public PersonLine(String id, String firstName, String lastName, String birthday, String comment) {
-        if(Validation.isValidId(id))
+
+        boolean isValidPerson = true;
+
+        if(ValidationUtils.isValidId(id))
             cells.add(id);
-        else
-            DataConverter.log.error("Error while creating Person: \t- wrong id format, id has to be numeric");
+        else {
+            DataConverter.log.error("Error while creating Person: \n\t- wrong id format, id has to be numeric");
+            isValidPerson = false;
+        }
 
-        if(Validation.isValidName(firstName))
+        if(ValidationUtils.isValidName(firstName))
             cells.add(firstName);
-        else
-            DataConverter.log.error("Error while creating Person: \t- wrong Name format, Name should consist of letters");
+        else {
+            DataConverter.log.error("Error while creating Person: \n\t- wrong Name format, Name should consist of letters");
+            isValidPerson = false;
+        }
 
-        if(Validation.isValidName(lastName))
+        if(ValidationUtils.isValidName(lastName))
             cells.add(lastName);
-        else
-            DataConverter.log.error("Error while creating Person: \t- wrong LastName format, LastName should consist of letters");
+        else {
+            DataConverter.log.error("Error while creating Person: \n\t- wrong LastName format, LastName should consist of letters");
+            isValidPerson = false;
+        }
 
-        if(Validation.isValidDate(birthday))
+        if(ValidationUtils.isValidDate(birthday))
             cells.add(birthday);
-        else
-            DataConverter.log.error("Error while creating Person: \t- wrong birthday format, birthday has to be yyyy-mm-dd");
-
+        else {
+            DataConverter.log.error("Error while creating Person: \n\t- wrong birthday format, birthday has to be yyyy-mm-dd");
+            isValidPerson = false;
+        }
         cells.add(comment);
+
+        if(!isValidPerson) {
+            System.err.println("Person values aren't valid");
+        }
     }
+
 
 
     @Override

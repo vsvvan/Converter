@@ -1,6 +1,10 @@
 package com.sytoss.trainee.utils;
 
-public class Validation {
+public class ValidationUtils {
+
+    private ValidationUtils() {
+
+    }
 
     public static boolean isValidId(String id) {
         return id.matches("^[0-9]+");

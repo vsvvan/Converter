@@ -1,35 +1,39 @@
 package com.sytoss.trainee.reader;
 
+import com.sytoss.trainee.DataConverter;
 import com.sytoss.trainee.lines.PersonLine;
-import org.apache.log4j.Logger;
 
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
 public class CSVReader extends AbstractReader {
-    private static final Logger log = Logger.getLogger(CSVReader.class);
 
     @Override
     public List<PersonLine> read(String inputFilename) {
+
         List<PersonLine> lines = new ArrayList<>();
         File inputFile = new File(inputFilename);
-        try (BufferedReader bufferedReader = new BufferedReader(new FileReader(inputFile));) {
+
+        try (BufferedReader bufferedReader = new BufferedReader(new FileReader(inputFile))) {
             String line;
             while ((line = bufferedReader.readLine()) != null) {
                 lines.add(processLine(line));
             }
-        } catch (IOException e) {
-            log.fatal(e.getMessage());
+        } catch (IOException exception) {
+            DataConverter.log.error("Error while reading xml-file by CSVReader: \n\t- " + exception.getMessage());
+            System.exit(-1);
         }
         return lines;
     }
 
     public PersonLine processLine(String inputData) {
+
         boolean isQuoteOpened = false;
         StringBuilder builder = new StringBuilder();
         PersonLine line = new PersonLine();
         int idx = 0;
+
         while (idx < inputData.length()) {
 
             if (inputData.charAt(idx) == '"') {
