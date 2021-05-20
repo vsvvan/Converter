@@ -14,7 +14,7 @@ import java.util.regex.Pattern;
 public class CSVWriter extends AbstractWriter {
 
     @Override
-    public void write(String outputFilename, List<PersonLine> lines) {
+    public void write(String outputFilename, List<PersonLine> lines) throws IOException {
         File outputFile = new File(outputFilename);
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(outputFile))) {
             for (PersonLine person : lines) {
@@ -32,8 +32,9 @@ public class CSVWriter extends AbstractWriter {
                 writer.write("\n");
             }
         } catch (IOException exception) {
-            DataConverter.log.error("Error while writing xml-file by CSVWriter: \n\t- " + exception.getMessage());
-            System.exit(-2);
+            DataConverter.log.error("CSVWriter: Error while writing xml-file: \n\t- " + exception.getMessage());
+            throw new IOException(exception.getMessage());
+            //System.exit(-2);
         }
     }
 

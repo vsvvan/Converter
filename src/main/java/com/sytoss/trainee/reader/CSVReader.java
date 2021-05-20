@@ -10,7 +10,7 @@ import java.util.List;
 public class CSVReader extends AbstractReader {
 
     @Override
-    public List<PersonLine> read(String inputFilename) {
+    public List<PersonLine> read(String inputFilename) throws IOException {
 
         List<PersonLine> lines = new ArrayList<>();
         File inputFile = new File(inputFilename);
@@ -21,8 +21,9 @@ public class CSVReader extends AbstractReader {
                 lines.add(processLine(line));
             }
         } catch (IOException exception) {
-            DataConverter.log.error("Error while reading xml-file by CSVReader: \n\t- " + exception.getMessage());
-            System.exit(-1);
+            DataConverter.log.error("CSVReader: Error while reading xml-file: \n\t- " + exception.getMessage());
+            throw new IOException(exception.getMessage());
+            //System.exit(-1);
         }
         return lines;
     }

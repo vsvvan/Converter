@@ -3,6 +3,7 @@ import com.sytoss.trainee.lines.PersonLine;
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.io.IOException;
 import java.util.*;
 
 import static org.junit.Assert.assertEquals;
@@ -11,7 +12,7 @@ public class CSVReaderTest {
     CSVReader csvReader = new CSVReader();
 
     @Test
-    public void openFile() {
+    public void openFile() throws IOException {
         csvReader.read("src/test/resources/emptyfile.csv");
     }
 
@@ -21,13 +22,13 @@ public class CSVReaderTest {
     }*/
 
     @Test
-    public void emptyFile() {
+    public void emptyFile() throws IOException {
         List<PersonLine> lines = csvReader.read("src/test/resources/emptyfile.csv");
         Assert.assertEquals(lines.size(), 0);
     }
 
     @Test
-    public void normalFormatFile() {
+    public void normalFormatFile() throws IOException {
         List<PersonLine> lines = csvReader.read("src/test/resources/oneLineFile.csv");
         Assert.assertEquals(lines.get(0).getCells().get(0), "111");
         Assert.assertEquals(lines.get(0).getCells().get(1), "222");
@@ -35,7 +36,7 @@ public class CSVReaderTest {
     }
 
     @Test
-    public void fileWithExtraSymbols() {
+    public void fileWithExtraSymbols() throws IOException {
         List<String> expected = new ArrayList<>();
         expected.add("1 Artur Kasumov 2001-08-23 Комментарий/");
         expected.add("2 Lexa Ishchenko 2002-08-04 Кр\"ут\"ой, чел");

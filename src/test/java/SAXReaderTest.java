@@ -5,6 +5,7 @@ import com.sytoss.trainee.reader.SAXReader;
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,13 +13,13 @@ public class SAXReaderTest
 {
     private SAXReader reader = new SAXReader();
     @Test
-    public void emptyFile() {
+    public void emptyFile() throws IOException {
         List<PersonLine> lines = reader.read("src/test/resources/zeroLinesFile.xml");
         Assert.assertEquals(lines.size(), 0);
     }
 
     @Test
-    public void oneLineFile() {
+    public void oneLineFile() throws IOException {
         List<PersonLine> lines = reader.read("src/test/resources/oneLineFile.xml");
         Assert.assertEquals(lines.size(), 1);
         PersonLine person = new PersonLine("1", "Artur", "Kasumov", "2001-08-23", "Комментарий/");
@@ -30,7 +31,7 @@ public class SAXReaderTest
     }
 
     @Test
-    public void linesFile() {
+    public void linesFile() throws IOException {
         List<PersonLine> lines = reader.read("src/test/resources/someLinesFile.xml");
         List<PersonLine> expected = new ArrayList<>();
         expected.add(new PersonLine("1", "Artur", "Kasumov", "2001-08-23", "Комментарий/"));

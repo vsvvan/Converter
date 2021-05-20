@@ -70,7 +70,7 @@ public class SAXWriter extends AbstractWriter {
             writer.close();
 
         } catch (XMLStreamException | IOException exception) {
-            DataConverter.log.error("Error while writing xml-file by SAXWriter: \n\t- " + exception.getMessage());
+            DataConverter.log.error("SAXWriter: Error while writing xml-file: \n\t- " + exception.getMessage());
             System.exit(-2);
         }
     }

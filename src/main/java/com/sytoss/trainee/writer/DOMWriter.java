@@ -15,7 +15,7 @@ import org.jdom2.output.XMLOutputter;
 public class DOMWriter extends AbstractWriter {
 
     @Override
-    public void write(String outputFilename, List<PersonLine> personLines) {
+    public void write(String outputFilename, List<PersonLine> personLines) throws IOException {
         Document doc = new Document();
         doc.setRootElement(new Element("persons"));
         SimpleDateFormat date = new SimpleDateFormat("yyyy-MM-dd");
@@ -33,8 +33,9 @@ public class DOMWriter extends AbstractWriter {
         try {
             xmlOutputter.output(doc, new FileOutputStream(outputFilename));
         } catch (IOException exception) {
-            DataConverter.log.error("Error while writing xml-file by DOMWriter: \n\t- " + exception.getMessage());
-            System.exit(-2);
+            DataConverter.log.error("DOMWriter: Error while writing xml-file: \n\t- " + exception.getMessage());
+            throw new IOException(exception.getMessage());
+            //System.exit(-2);
         }
     }
 }

@@ -9,13 +9,14 @@ import org.jdom2.input.DOMBuilder;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 public class DOMReader extends AbstractReader {
 
     @Override
-    public List<PersonLine> read(String inputFilename) {
+    public List<PersonLine> read(String inputFilename) throws IOException {
         List<PersonLine> persons = new ArrayList<>();
         try {
             DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
@@ -48,8 +49,9 @@ public class DOMReader extends AbstractReader {
             }
 
         } catch (Exception exception) {
-            DataConverter.log.error("Error while reading xml-file by DOMReader: \n\t- " + exception.getMessage());
-            System.exit(-1);
+            DataConverter.log.error("DOMReader: Error while reading xml-file: \n\t- " + exception.getMessage());
+            throw new IOException(exception.getMessage());
+            //System.exit(-1);
         }
         return persons;
     }

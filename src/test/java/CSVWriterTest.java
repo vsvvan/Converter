@@ -16,7 +16,7 @@ public class CSVWriterTest
 {
     CSVWriter writer = new CSVWriter();
     @Test
-    public void emptyFile() {
+    public void emptyFile() throws IOException {
         String filename = "src/test/resources/emptyfile.csv";
         List<PersonLine> lines = new ArrayList<>();
         writer.write(filename, lines);
@@ -39,8 +39,7 @@ public class CSVWriterTest
 
 
     @Test
-    public void oneLineCount()
-    {
+    public void oneLineCount() throws IOException {
         String filename = "src/test/resources/csvOneLine.csv";
         List<PersonLine> lines = new ArrayList<>();
         PersonLine line = new PersonLine();
@@ -70,13 +69,11 @@ public class CSVWriterTest
 
         } catch (FileNotFoundException e) {
             e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
         }
     }
 
     @Test
-    public void oneLine() {
+    public void oneLine() throws IOException {
         String filename = "src/test/resources/csvOneLine.csv";
         List<PersonLine> lines = new ArrayList<>();
         PersonLine line = new PersonLine();
@@ -105,15 +102,13 @@ public class CSVWriterTest
 
         } catch (FileNotFoundException e) {
             e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
         }
     }
 
 
 
     @Test
-    public void someLines() {
+    public void someLines() throws IOException {
         String filename = "src/test/resources/csvOneLine.csv";
         List<PersonLine> lines = new ArrayList<>();
         PersonLine line = new PersonLine();
@@ -142,16 +137,14 @@ public class CSVWriterTest
 
         } catch (FileNotFoundException e) {
             e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
         }
     }
 
     @Test
-    public void emptyFileWrite() {
+    public void emptyFileWrite() throws IOException {
 
         CSVReader reader = new CSVReader();
-        List<PersonLine> persons = new ArrayList<PersonLine>(reader.read("src/test/resources/empty.csv"));
+        List<PersonLine> persons = new ArrayList<>(reader.read("src/test/resources/empty.csv"));
 
         writer.write( "src/test/resources/empty.csv",persons);
 
@@ -160,33 +153,33 @@ public class CSVWriterTest
     }
 
     @Test
-    public void oneLineFileWrite() {
+    public void oneLineFileWrite() throws IOException {
 
         CSVReader reader = new CSVReader();
-        List<PersonLine> persons = new ArrayList<PersonLine>(reader.read("src/test/resources/csvOneLine.csv"));
+        List<PersonLine> persons = new ArrayList<>(reader.read("src/test/resources/csvOneLine.csv"));
 
         writer.write("src/test/resources/csvOneLine.csv",persons);
 
         File file = new File("src/test/resources/csvOneLine.csv");
         assertEquals(file.length(), 55);
 
-        List<PersonLine> personsNew = new ArrayList<PersonLine>(reader.read("src/test/resources/csvOneLine.csv"));
+        List<PersonLine> personsNew = new ArrayList<>(reader.read("src/test/resources/csvOneLine.csv"));
 
         assertEquals(persons.size(), personsNew.size());
     }
 
     @Test
-    public void linesFileWrite() {
+    public void linesFileWrite() throws IOException {
         CSVReader reader = new CSVReader();
 
-        List<PersonLine> persons = new ArrayList<PersonLine>(reader.read("src/test/resources/testfile1.csv"));
+        List<PersonLine> persons = new ArrayList<>(reader.read("src/test/resources/testfile1.csv"));
 
         writer.write("src/test/resources/testfile1.csv",persons);
 
         File file = new File("src/test/resources/testfile1.csv");
         assertEquals(file.length(), 165);
 
-        List<PersonLine> personsNew = new ArrayList<PersonLine>(reader.read("src/test/resources/testfile1.csv"));
+        List<PersonLine> personsNew = new ArrayList<>(reader.read("src/test/resources/testfile1.csv"));
 
         assertEquals(persons.size(), personsNew.size());
     }

@@ -1,6 +1,7 @@
 package com.sytoss.trainee;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.List;
 
 import com.sytoss.trainee.lines.PersonLine;
@@ -22,7 +23,7 @@ public class DataConverter {
     private Reader reader;
     private Writer writer;
 
-    public List<PersonLine> readLinesFromFile(String inputPath) {
+    public List<PersonLine> readLinesFromFile(String inputPath) throws IOException {
 
         if(FormatUtils.isCsv(inputPath)) {
 
@@ -45,7 +46,7 @@ public class DataConverter {
 
     }
 
-    public void writeLinesToFile(String outputPath, List<PersonLine> persons) {
+    public void writeLinesToFile(String outputPath, List<PersonLine> persons) throws IOException {
 
         if(FormatUtils.isCsv(outputPath)) {
             writer = new CSVWriter();
@@ -71,10 +72,17 @@ public class DataConverter {
         List<PersonLine> lines;
 
         DataConverter converter = new DataConverter();
-        lines = converter.readLinesFromFile(args[0]);
-        converter.writeLinesToFile(args[1], lines);
 
-        log.info("Program process ended");
+        try {
+            lines = converter.readLinesFromFile(args[0]);
+            converter.writeLinesToFile(args[1], lines);
+        }
+        catch (IOException exception) {
+            log.error(exception.getMessage());
+            System.exit(-2);
+        }
+
+        log.info("Program process ended successfully");
 
     }
 
