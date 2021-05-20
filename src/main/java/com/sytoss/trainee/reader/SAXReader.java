@@ -3,6 +3,7 @@ package com.sytoss.trainee.reader;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,7 +18,7 @@ import com.sytoss.trainee.exception.XmlFormatException;
 public class SAXReader extends AbstractReader {
 
     @Override
-    public List<PersonLine> read(String inputFilename) {
+    public List<PersonLine> read(String inputFilename) throws IOException {
 
         List<PersonLine> lines = new ArrayList<>();
         try {
@@ -74,8 +75,9 @@ public class SAXReader extends AbstractReader {
             }
         } catch (Exception exception) {
 
-            DataConverter.log.error("Error while reading xml file by Sax reader: \n\t- " + exception.getMessage());
-            System.exit(-1);
+            DataConverter.log.error("SAXReader: Error while reading xml-file: \n\t- " + exception.getMessage());
+            throw new IOException(exception.getMessage());
+            //System.exit(-1);
 
         }
 

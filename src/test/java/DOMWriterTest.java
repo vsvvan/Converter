@@ -34,7 +34,7 @@ public class DOMWriterTest {
     }
 
     @Test
-    public void someLines() {
+    public void someLines() throws IOException {
         String filename = "src/test/resources/oneLineFile.xml";
 
         List<PersonLine> lines = new ArrayList<>();
